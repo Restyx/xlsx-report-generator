@@ -7,6 +7,12 @@ import { Order } from "@src/common/constants/order.enum";
 /**
  * Get all records.
  */
+
+async function save(user: string, text: string) {
+  const comment = AppDataSource.manager.create(Comment, { user, text });
+  return await AppDataSource.manager.save(comment);
+}
+
 async function getAll(
   skip: number,
   take: number,
@@ -23,5 +29,6 @@ async function getAll(
 // **** Export default **** //
 
 export default {
+  save,
   getAll,
 } as const;

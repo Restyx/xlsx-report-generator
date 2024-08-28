@@ -4,15 +4,15 @@ import { Order } from "@src/common/constants/order.enum";
 
 // **** Functions **** //
 
-/**
- * Get all records.
- */
+function create(user: string, text: string) {
+  return CommentsRepo.save(user, text);
+}
+
 function getAll(skip: number, take: number, order: Order): Promise<Comment[]> {
   return CommentsRepo.getAll(skip, take, order);
 }
 
-// **** Export default **** //
-
 export default {
+  create,
   getAll,
 } as const;

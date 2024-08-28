@@ -4,6 +4,13 @@ import { plainToClass } from "class-transformer";
 import HttpStatusCodes from "@src/common/constants/HttpStatusCodes";
 import CommentsService from "@src/services/CommentsService";
 import { PageOptionsDto } from "@src/common/dtos/page-options.dto";
+import { CreateCommentDto } from "@src/common/dtos/create-comment.dto";
+
+async function create(req: Request, res: Response) {
+  const dto = plainToClass(CreateCommentDto, req.body);
+  const comment = await CommentsService.create(dto.user, dto.text);
+  return res.status(HttpStatusCodes.CREATED).json(comment);
+}
 
 async function getAll(req: Request, res: Response) {
   const pageOptionsDto = plainToClass(PageOptionsDto, req.query);
@@ -17,5 +24,6 @@ async function getAll(req: Request, res: Response) {
 }
 
 export default {
+  create,
   getAll,
 } as const;

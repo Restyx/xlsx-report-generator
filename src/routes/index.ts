@@ -14,6 +14,7 @@ const commentsRouter = Router();
 
 // Get all data
 commentsRouter.get("", CommentsRoutes.getAll);
+commentsRouter.post("", CommentsRoutes.create);
 
 // Add DataRouter
 apiRouter.use(Paths.Comments.Base, commentsRouter);
