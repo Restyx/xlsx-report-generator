@@ -1,11 +1,11 @@
 services:
-  reportGeneratorDatabase:
+  reportClientDatabase:
     image: postgres:16
     restart: always
     env_file:
-      - ./.env
+      - ./env/development.env
     shm_size: 256mb
     environment:
       PG_DATA: /var/lib/postgresql/data
     ports:
-      - 5432:5432
+      - 5433:5432
