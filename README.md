@@ -1,43 +1,16 @@
-## About
-
-This project was created with [express-generator-typescript](https://github.com/seanpmaxwell/express-generator-typescript).
-
-
-## Available Scripts
-
-### `npm run dev`
-
-Run the server in development mode.
-
-### `npm test`
-
-Run all unit-tests with hot-reloading.
-
-### `npm test -- --testFile="name of test file" (i.e. --testFile=Users).`
-
-Run a single unit-test.
-
-### `npm run test:no-reloading`
-
-Run all unit-tests without hot-reloading.
-
-### `npm run lint`
-
-Check for linting errors.
-
-### `npm run build`
-
-Build the project for production.
-
-### `npm start`
-
-Run the production build (Must be built first).
-
-### `npm start -- --env="name of env file" (default is production).`
-
-Run production build with a different env file.
-
-
-## Additional Notes
-
-- If `npm run dev` gives you issues with bcrypt on MacOS you may need to run: `npm rebuild bcrypt --build-from-source`. 
+# About
+Простейший сервис заказчик выдающий комментарии для сервиса генерации отчётов:
+## Get "comments"
+принимает как параметр 
+- page - номер страницы
+- take - количество нужных комментариев
+- order - порядок сортировки по дате [ASC / DESC]
+Комментарии имеют поля
+- id - идентификатор
+- user - почта или имя пользователя
+- text - текст комментария
+- createdAt - дата и время создания комментария
+## Post "comments"
+принимает поля user и text из тела запроса и заносит в базу данных
+- user - "почта" пользавателя оставившего комментарий
+- text - текст комментария
