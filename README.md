@@ -5,7 +5,7 @@ Post запрос к "reports" с указанием serviceName как наим
 <br>
 {
     "serviceName": "localhost:3002",
-    "endpoint": "/api/comments/",
+    "endpoint": "api/comments?page=1&take=3&order=ASC",
     "headers": ["id", "user", "text", "createdAt"]
 }
 <br>
